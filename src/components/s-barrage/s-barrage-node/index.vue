@@ -21,14 +21,16 @@ export default {
       // 高度
       top: '',
       // 点击回调
-      callBack: ''
+      callBack: '',
+      // 方向('left','right')
+      direction: 'left'
     }
   },
   computed: {
     // 计算弹幕位置
     nodeStyle () {
       return {
-        left: '0px',
+        left: this.direction === 'right' ? '0px' : `${this.width}px`,
         top: `${this.top}px`
       }
     }
@@ -45,7 +47,7 @@ export default {
     },
     // 弹幕离开动画
     leave: function (el, done) {
-      this.Velocity(el, { left: `${this.width}px` }, { easing: 'linear', duration: 10000, complete: done })
+      this.Velocity(el, { left: this.direction === 'right' ? `${this.width}px` : '0px' }, { easing: 'linear', duration: 10000, complete: done })
     },
     // 鼠标停留暂停
     stop () {

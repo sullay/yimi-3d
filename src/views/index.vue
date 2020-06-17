@@ -19,6 +19,15 @@ export default {
         }
       })
     }, 2000)
+    setInterval(() => {
+      this.$refs.bar.push({
+        text: '弹幕',
+        direction: 'right',
+        callBack: (val) => {
+          console.log(val)
+        }
+      })
+    }, 1000)
   }
 }
 </script>
