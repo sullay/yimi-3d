@@ -40,7 +40,7 @@ export default {
     this.visible = false
   },
   methods: {
-    // 动画完成后删除虚拟DOM以及真实DOM
+    // 动画完成后删除当前实例及真实DOM
     handleAfterLeave () {
       this.$destroy()
       this.$el.parentNode.removeChild(this.$el)
